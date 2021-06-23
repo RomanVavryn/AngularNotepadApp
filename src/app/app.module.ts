@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContainerComponent } from './container/container.component';
 import { NoteItemComponent } from './note-item/note-item.component';
+import { AddBtnComponent } from './add-btn/add-btn.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
-    NoteItemComponent
+    NoteItemComponent,
+    AddBtnComponent
   ],
   imports: [
     BrowserModule,
