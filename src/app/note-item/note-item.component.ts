@@ -7,7 +7,7 @@ import {NoteInterface} from '../shared/note-interface';
   styleUrls: ['./note-item.component.scss']
 })
 export class NoteItemComponent implements OnInit {
-
+  optionsShow: boolean = false;
   @Input() noteItem: NoteInterface;
 
   constructor() {
