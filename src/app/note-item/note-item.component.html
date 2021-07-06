@@ -1,10 +1,15 @@
 <div
   class="border rounded border-success m-3 p-3"
   (mouseenter)="optionsShow = true" (mouseleave)="optionsShow = false">
-  <h2>{{noteItem.title}}</h2>
-  <p>{{noteItem.text}}</p>
+  <h2 [hidden]="editMode">{{noteItem.title}}</h2>
+  <p [hidden]="editMode">{{noteItem.text}}</p>
+  <input type="text" class="form-control" placeholder="{{noteItem.title}}" [(ngModel)]="noteItem.title" [hidden]="!editMode">
+  <input type="text" class="form-control" placeholder="{{noteItem.text}}" [(ngModel)]="noteItem.text" [hidden]="!editMode">
+
   <div>
     <button class="btn btn-danger" [hidden]="!optionsShow" (click)="deleteItem()">Delete</button>
-    <button class="btn btn-secondary ml-3" [hidden]="!optionsShow">Edit</button>
+    <button class="btn btn-secondary ml-3" [hidden]="!optionsShow || editMode" (click)="startEditMode()">Edit</button>
+    <button class="btn btn-secondary ml-3" [hidden]="!editMode" (click)="endEditMode()">Save</button>
+
   </div>
 </div>

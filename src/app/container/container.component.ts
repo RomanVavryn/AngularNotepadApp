@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NoteInterface} from '../shared/note-interface';
+import {NewNoteInterface} from '../shared/new-note-interface';
 
 @Component({
   selector: 'app-container',
@@ -27,5 +28,9 @@ export class ContainerComponent implements OnInit {
 
   onDellItem(itemIndex: number): void {
     this.notes.splice(itemIndex, 1);
+  }
+
+  onUpdateItem(item: NewNoteInterface): void {
+    this.notes.splice(item.index, 1, item.newItem);
   }
 }

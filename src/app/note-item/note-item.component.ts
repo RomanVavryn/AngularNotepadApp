@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NoteInterface} from '../shared/note-interface';
+import {NewNoteInterface} from '../shared/new-note-interface';
 
 @Component({
   selector: 'app-note-item',
@@ -8,9 +9,11 @@ import {NoteInterface} from '../shared/note-interface';
 })
 export class NoteItemComponent implements OnInit {
   optionsShow = false;
+  editMode = false;
   @Input() noteItem: NoteInterface;
   @Input() itemIndex: number;
   @Output() dellItemId: EventEmitter<number> = new EventEmitter<number>();
+  @Output() updateItem: EventEmitter<NewNoteInterface> = new EventEmitter<NewNoteInterface>();
 
   constructor() {
   }
@@ -20,5 +23,18 @@ export class NoteItemComponent implements OnInit {
 
   deleteItem(): void {
     this.dellItemId.emit(this.itemIndex);
+  }
+
+  startEditMode(): void {
+    this.editMode = true;
+  }
+
+  endEditMode(): void {
+    this.editMode = false;
+    const updatedItem: NewNoteInterface = {
+      index: this.itemIndex,
+      newItem: this.noteItem
+    };
+    this.updateItem.emit(updatedItem);
   }
 }
