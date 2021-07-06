@@ -8,6 +8,7 @@ import { NoteItemComponent } from './note-item/note-item.component';
 import { AddBtnComponent } from './add-btn/add-btn.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import {MatIconModule} from '@angular/material/icon';
     NoteItemComponent,
     AddBtnComponent
   ],
-  imports: [
-    BrowserModule,
-    NgbModule,
-    BrowserAnimationsModule,
-    MatIconModule
-  ],
+    imports: [
+        BrowserModule,
+        NgbModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

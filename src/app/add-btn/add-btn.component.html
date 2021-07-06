@@ -1,3 +1,44 @@
-<button class="add-btn">
+<!-- open model btn -->
+<button class="add-btn" (click)="open(content)">
   <mat-icon aria-hidden="false" aria-label="Example home icon">add_circle_outline</mat-icon>
 </button>
+
+<!--model for new note (bootstrap modal)-->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Note</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="noteTitle">Note title</label>
+        <div class="input-group">
+          <input id="noteTitle"
+                 type="text"
+                 class="form-control"
+                 placeholder="Note title"
+                 name="noteTitle"
+                 [(ngModel)]="nTitle">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="noteText">Note text</label>
+        <div class="input-group">
+          <input id="noteText"
+                 class="form-control"
+                 placeholder="Note text"
+                 name="noteText"
+                 [(ngModel)]="nText">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="newNote()">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+
+  </div>
+</ng-template>

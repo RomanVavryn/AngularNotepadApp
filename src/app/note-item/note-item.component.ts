@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {NoteInterface} from '../shared/note-interface';
 
 @Component({
   selector: 'app-note-item',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() noteItem: NoteInterface;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
