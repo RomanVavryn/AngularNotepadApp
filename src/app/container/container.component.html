@@ -12,7 +12,7 @@
     <app-note-item *ngFor="let note of notes" [noteItem]="note"></app-note-item>
   </div>
   <!-- add btn -->
-  <app-add-btn (newNoteData)="onNewNote($event)"></app-add-btn>
+  <app-add-btn (newNoteData)="onNewNote($event)" [nId]="notes.length"></app-add-btn>
   <!-- modal window -->
 
 </div>

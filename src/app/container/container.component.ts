@@ -8,9 +8,9 @@ import {NoteInterface} from '../shared/note-interface';
 })
 export class ContainerComponent implements OnInit {
   notes: NoteInterface[] = [
-    {title: 'Note Name', text: 'Note Text'},
-    {title: 'My note 1', text: 'My note text'},
-    {title: 'End application', text: 'End all features notepad application'}
+    {id: 1, title: 'Note Name', text: 'Note Text'},
+    {id: 2, title: 'My note 1', text: 'My note text'},
+    {id: 3, title: 'End application', text: 'End all features notepad application'}
   ];
 
   @Input() title: string;

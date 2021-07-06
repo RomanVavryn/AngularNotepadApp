@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {NoteInterface} from '../shared/note-interface';
@@ -13,7 +13,7 @@ export class AddBtnComponent implements OnInit {
   @Output() newNoteData: EventEmitter<NoteInterface> = new EventEmitter();
   nTitle: string | undefined;
   nText: string | undefined;
-
+  @Input() nId: number | undefined;
   constructor(private modalService: NgbModal) {
   }
 
@@ -43,6 +43,7 @@ export class AddBtnComponent implements OnInit {
   newNote(): void {
     if (this.nTitle.trim().length > 4 && this.nText.trim().length > 4) {
       const nItem = {
+        id: ++this.nId,
         title: this.nTitle,
         text: this.nText
       };
