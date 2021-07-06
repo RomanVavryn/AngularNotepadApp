@@ -30,11 +30,13 @@ export class NoteItemComponent implements OnInit {
   }
 
   endEditMode(): void {
-    this.editMode = false;
-    const updatedItem: NewNoteInterface = {
-      index: this.itemIndex,
-      newItem: this.noteItem
-    };
-    this.updateItem.emit(updatedItem);
+    if (this.noteItem.title.trim().length > 4 && this.noteItem.text.trim().length > 4) {
+      this.editMode = false;
+      const updatedItem: NewNoteInterface = {
+        index: this.itemIndex,
+        newItem: this.noteItem
+      };
+      this.updateItem.emit(updatedItem);
+    }
   }
 }
