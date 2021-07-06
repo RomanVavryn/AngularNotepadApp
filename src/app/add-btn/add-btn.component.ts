@@ -41,11 +41,15 @@ export class AddBtnComponent implements OnInit {
 
 
   newNote(): void {
-    const nItem = {
-      title: this.nTitle,
-      text: this.nText
-    };
-    this.newNoteData.emit(nItem);
-    this.modalService.dismissAll();
+    if (this.nTitle.trim().length > 4 && this.nText.trim().length > 4) {
+      const nItem = {
+        title: this.nTitle,
+        text: this.nText
+      };
+      this.newNoteData.emit(nItem);
+      this.modalService.dismissAll();
+      this.nTitle = '';
+      this.nText = '';
+    }
   }
 }
