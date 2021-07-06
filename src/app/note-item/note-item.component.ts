@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NoteInterface} from '../shared/note-interface';
 
 @Component({
@@ -7,8 +7,10 @@ import {NoteInterface} from '../shared/note-interface';
   styleUrls: ['./note-item.component.scss']
 })
 export class NoteItemComponent implements OnInit {
-  optionsShow: boolean = false;
+  optionsShow = false;
   @Input() noteItem: NoteInterface;
+  @Input() itemIndex: number;
+  @Output() dellItemId: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {
   }
@@ -16,4 +18,7 @@ export class NoteItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteItem(): void {
+    this.dellItemId.emit(this.itemIndex);
+  }
 }

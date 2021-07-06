@@ -9,7 +9,7 @@
   <!-- note container -->
   <div class="d-flex flex-wrap px-4">
     <!--  note item,s  -->
-    <app-note-item *ngFor="let note of notes" [noteItem]="note"></app-note-item>
+    <app-note-item *ngFor="let note of notes; let i = index" [itemIndex]="i" [noteItem]="note" (dellItemId)="onDellItem($event)"></app-note-item>
   </div>
   <!-- add btn -->
   <app-add-btn (newNoteData)="onNewNote($event)" [nId]="notes.length"></app-add-btn>

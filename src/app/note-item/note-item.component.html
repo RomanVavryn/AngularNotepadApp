@@ -4,7 +4,7 @@
   <h2>{{noteItem.title}}</h2>
   <p>{{noteItem.text}}</p>
   <div>
-    <button class="btn btn-danger" [hidden]="!optionsShow">Delete</button>
+    <button class="btn btn-danger" [hidden]="!optionsShow" (click)="deleteItem()">Delete</button>
     <button class="btn btn-secondary ml-3" [hidden]="!optionsShow">Edit</button>
   </div>
 </div>

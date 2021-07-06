@@ -24,4 +24,8 @@ export class ContainerComponent implements OnInit {
   onNewNote(item): void {
     this.notes.push(item);
   }
+
+  onDellItem(itemIndex: number): void {
+    this.notes.splice(itemIndex, 1);
+  }
 }
