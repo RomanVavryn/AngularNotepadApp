@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NoteInterface} from '../shared/note-interface';
 import {NewNoteInterface} from '../shared/new-note-interface';
 
@@ -7,19 +7,16 @@ import {NewNoteInterface} from '../shared/new-note-interface';
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.scss']
 })
-export class ContainerComponent implements OnInit {
-  notes: NoteInterface[] = [
-    {id: 1, title: 'Note Name', text: 'Note Text'},
-    {id: 2, title: 'My note 1', text: 'My note text'},
-    {id: 3, title: 'End application', text: 'End all features notepad application'}
-  ];
-
+export class ContainerComponent {
   @Input() title: string;
 
-  constructor() {
-  }
+  notes: NoteInterface[] = [
+    {id: 1, title: 'Note Name', text: 'Note Text'},
+    {id: 2, title: 'Example 1', text: 'Text example'},
+    {id: 3, title: 'End application', text: 'Implement all features notepad application'}
+  ];
 
-  ngOnInit(): void {
+  constructor() {
   }
 
   onNewNote(item): void {

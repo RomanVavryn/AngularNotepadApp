@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NoteInterface} from '../shared/note-interface';
 import {NewNoteInterface} from '../shared/new-note-interface';
 
@@ -7,7 +7,7 @@ import {NewNoteInterface} from '../shared/new-note-interface';
   templateUrl: './note-item.component.html',
   styleUrls: ['./note-item.component.scss']
 })
-export class NoteItemComponent implements OnInit {
+export class NoteItemComponent {
   optionsShow = false;
   editMode = false;
   @Input() noteItem: NoteInterface;
@@ -16,9 +16,6 @@ export class NoteItemComponent implements OnInit {
   @Output() updateItem: EventEmitter<NewNoteInterface> = new EventEmitter<NewNoteInterface>();
 
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
   deleteItem(): void {
